@@ -62,3 +62,10 @@ bigramas_filtrados <- bigramas_separados |>
 
 # Mostrar resultado
 print(bigramas_filtrados)
+
+bigramas_filtrados|> 
+  count(bigrama, sort = TRUE) |> 
+  filter(n > 1) |> 
+  ggplot(aes(x = reorder(bigrama, n), y = n)) +
+  geom_col() +
+  coord_flip()

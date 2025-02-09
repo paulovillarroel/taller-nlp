@@ -44,7 +44,7 @@ prompt <- paste(
   
   "CRITERIOS DE CLASIFICACIÓN:\n",
   "1. Si el texto menciona explícitamente un tipo de cáncer (por ejemplo, 'cáncer de pulmón', 'leucemia', 'carcinoma', 'masa', 'cbc (cáncer basocelular', 'tumor', etc.), debes clasificarlo como 'SÍ'.\n",
-  "2. También analiza si el texto indica algún procedimiento o cirugía relacionada a cáncer como 'Hartmann', 'toma de biopsia', 'recosntrucción de tránsito intestinal', 'quimioterapia', 'radioterapia', etc.\n",
+  "2. También analiza si el texto indica algún procedimiento o cirugía relacionada a cáncer como 'Hartmann', 'toma de biopsia', 'reconstrucción de tránsito intestinal', 'quimioterapia', 'radioterapia', etc.\n",
   "3. Si el texto describe síntomas o tratamientos que están relacionados con el cáncer, pero no menciona explícitamente el término 'cáncer', debes clasificarlo como 'SI' si es probable que se trate de un caso de cáncer.\n",
   "4. Si el texto no menciona nada relacionado con el cáncer, debes clasificarlo como 'NO'.\n\n",
   
@@ -63,3 +63,7 @@ texts_classified <- text |>
 # Zero-shot
 texts_organs <- text |> 
   llm_extract(texto, "human organ")
+
+text |> 
+  llm_summarize(texto, max_words = 5)
+
